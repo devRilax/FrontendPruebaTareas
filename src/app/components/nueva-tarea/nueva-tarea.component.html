@@ -1,0 +1,26 @@
+
+
+
+<form  [formGroup]="formTarea">
+
+    <div class="form-group col-md-8">
+      <label>Título de la tarea</label>
+      <input type="text" 
+             class="form-control" 
+             placeholder="Ingrese titulo"
+             formControlName="nombre"
+             maxlength="100" />
+    </div>
+    <div class="form-group col-md-8">
+        <label>Descripción breve</label>
+        <textarea type="text" 
+                class="form-control" 
+                placeholder="Ingrese una descripcion breve" 
+                formControlName="descripcion"
+                maxlength="100"></textarea>
+    </div>
+   
+
+    <button type="submit" class="btn btn-primary" (click)="crear()">Crear tarea</button>
+
+  </form>

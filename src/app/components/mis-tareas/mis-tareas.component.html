@@ -1,0 +1,17 @@
+<div class="contenedor">
+    <h1>Nueva tarea</h1>
+    <hr>
+
+    <form-nueva-tarea (nuevatarea)="crear($event)"></form-nueva-tarea>
+    <hr>
+
+    <hr>
+    <h1>Mis tareas</h1>
+    <tabla-tareas *ngIf="misTareas.length > 0" [tareas]="misTareas"></tabla-tareas>
+    <div *ngIf="misTareas.length == 0" class="alert alert-danger" role="alert">
+        Usted no registra tareas.
+     </div>
+
+</div>
+
+

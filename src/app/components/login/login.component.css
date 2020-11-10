@@ -1,0 +1,30 @@
+
+
+.contenedor {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: #909a90;
+    background-color: #e6dddd;
+    border-radius: 5px;
+    border-style: solid;
+    padding: 90px;
+}
+
+.contenedor .box input {
+    margin-bottom: 10px;
+    width: 355px;
+}
+
+.contenedor .box img {
+    width: 100px;
+    height: 100px;
+}
