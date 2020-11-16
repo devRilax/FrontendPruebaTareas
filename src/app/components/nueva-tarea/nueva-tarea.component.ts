@@ -35,7 +35,7 @@ export class NuevaTareaComponent implements OnInit {
       nombre: this.formTarea.controls['nombre'].value,
       descripcion: this.formTarea.controls['descripcion'].value,
       activa: false, //pendiente
-      usuadioId: usuarioConectado ? usuarioConectado.id : 1
+      usuarioId: usuarioConectado ? usuarioConectado.id : 1
     }
 
     this.nuevatarea.emit(tarea);

@@ -1,4 +1,6 @@
 <div class="contenedor">
+    <navbar *ngIf="this.infoUsuario" [usuario]="this.infoUsuario.nombre"></navbar>
+    <br>
     <h1>Nueva tarea</h1>
     <hr>
 

@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app-routing.module';
 import { InscripcionUsuarioComponent } from './components/inscripcion-usuario/inscripcion-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     NuevaTareaComponent,
     InscripcionUsuarioComponent,
-    MisTareasComponent
+    MisTareasComponent,
+    NavbarComponent
   ],
   imports: [
     HttpClientModule,

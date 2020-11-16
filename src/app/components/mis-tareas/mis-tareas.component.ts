@@ -9,39 +9,41 @@ import { TareaService } from '../tarea.service';
 })
 export class MisTareasComponent implements OnInit {
 
+  infoUsuario = null;
+  
   constructor(private tareaService: TareaService, 
               private auth: AuthserviceService) { }
 
   misTareas = []
 
   ngOnInit() {
+    this.infoUsuario = this.auth.getInfoUser();
     this.get();
   }
 
   get() {
-   
-    const usuario = this.auth.getInfoUser();
-    if(!usuario) return;
 
-    this.tareaService.GetByUser(1)
+    if(!this.infoUsuario) return;
+
+    this.tareaService.GetByUser(this.infoUsuario.id)
     .then((data: any[]) => {
       if(data && data.length > 0) {
         this.misTareas = data.map( tarea => {
           return {
             id: tarea.id,
-            nombre: tarea.nombre,
-            descripcion: tarea.descripcion,
-            descripcionEstado: tarea.activa ? 'No resuelta' : 'Resuelta'
+            nombre: tarea.Nombre,
+            descripcion: tarea.Descripcion,
+            descripcionEstado: tarea.Activa ? 'Resuelta' : 'No resuelta'
           }
-        })
+        });
       }
-    })
+    });
   }
 
   crear(tarea) {
     this.tareaService.Create(tarea)
     .then((data:any) => {
-      if(data.data.id) {
+      if(data.id) {
         this.get();
       }
     })

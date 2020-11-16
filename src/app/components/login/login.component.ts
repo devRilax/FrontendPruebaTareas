@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.authService.auth(usuario)
       .then( ( response: any ) => {
         if(response) {
-          //this.authService.saveData();
+          this.authService.saveData(response);
           this.router.navigate(["mis-tareas"])
         } else {
         }

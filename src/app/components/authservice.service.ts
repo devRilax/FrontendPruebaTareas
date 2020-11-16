@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Session } from 'inspector';
 
 
 @Injectable({
@@ -19,6 +18,7 @@ export class AuthserviceService {
   }
 
   getInfoUser() {
-    return JSON.parse(sessionStorage.getItem('infoUsuario'));
+    const data = sessionStorage.getItem('infoUsuario');
+    return (!data || data === 'undefined') ? null :  JSON.parse(sessionStorage.getItem('infoUsuario'));
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
+import { AuthserviceService } from '../authservice.service';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class InscripcionUsuarioComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private usuarioService: UsuarioService,
+              private authService: AuthserviceService,
               private router : Router) { 
 
     this.userform = this.formBuilder.group({
@@ -47,6 +49,7 @@ export class InscripcionUsuarioComponent implements OnInit {
     this.usuarioService.create(usuarioPayload)
     .then( (data: any) => {
       if(data.success) {
+        this.authService.saveData(data.Data);
         this.router.navigate(["mis-tareas"])
       } else {
         alert(data.data[0]);
