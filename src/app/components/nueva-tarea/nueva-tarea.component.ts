@@ -39,7 +39,7 @@ export class NuevaTareaComponent implements OnInit {
     }
 
     this.nuevatarea.emit(tarea);
-
+    this.formTarea.reset();
   }
 
 

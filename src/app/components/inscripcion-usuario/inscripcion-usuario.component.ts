@@ -32,6 +32,8 @@ export class InscripcionUsuarioComponent implements OnInit {
 
   registrar() {
 
+    if(this.userform.$invalid) return;
+
     const password = this.userform.controls['password'].value;
     const passwordRepeat = this.userform.controls['passwordrepeat'].value;
 
@@ -49,7 +51,7 @@ export class InscripcionUsuarioComponent implements OnInit {
     this.usuarioService.create(usuarioPayload)
     .then( (data: any) => {
       if(data.success) {
-        this.authService.saveData(data.Data);
+        this.authService.saveData(data.Dlata);
         this.router.navigate(["mis-tareas"])
       } else {
         alert(data.data[0]);

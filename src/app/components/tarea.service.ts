@@ -15,4 +15,8 @@ export class TareaService {
   GetByUser(idUser) {
     return this.http.get(`http://localhost:50461/api/tarea?userId=${idUser}`).toPromise();
   }
+
+  Completar(tarea) {
+    return this.http.put('http://localhost:50461/api/tarea', tarea).toPromise();
+  }
 }

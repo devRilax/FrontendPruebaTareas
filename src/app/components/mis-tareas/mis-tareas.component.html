@@ -9,7 +9,10 @@
 
     <hr>
     <h1>Mis tareas</h1>
-    <tabla-tareas *ngIf="misTareas.length > 0" [tareas]="misTareas"></tabla-tareas>
+    <tabla-tareas *ngIf="misTareas.length > 0" 
+                   [tareas]="misTareas"
+                   (completar)="completarTarea($event)"></tabla-tareas>
+
     <div *ngIf="misTareas.length == 0" class="alert alert-danger" role="alert">
         Usted no registra tareas.
      </div>

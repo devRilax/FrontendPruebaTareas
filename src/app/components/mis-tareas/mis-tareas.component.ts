@@ -32,8 +32,9 @@ export class MisTareasComponent implements OnInit {
           return {
             id: tarea.id,
             nombre: tarea.Nombre,
+            finalizada: tarea.Finalizada,
             descripcion: tarea.Descripcion,
-            descripcionEstado: tarea.Activa ? 'Resuelta' : 'No resuelta'
+            descripcionEstado: tarea.Finalizada ? 'Resuelta' : 'No resuelta'
           }
         });
       }
@@ -48,5 +49,19 @@ export class MisTareasComponent implements OnInit {
       }
     })
   }
+
+  completarTarea(tarea) {
+    const tareaPayload = {
+      id: tarea.id,
+      finalizada: tarea.finalizada,
+    }
+
+    this.tareaService.Completar(tarea)
+    .then( (data:any) => {
+      this.get();
+    } )
+
+  }
+
 
 }

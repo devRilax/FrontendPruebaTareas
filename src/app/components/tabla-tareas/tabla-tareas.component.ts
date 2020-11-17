@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'tabla-tareas',
@@ -8,10 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TablaTareasComponent implements OnInit {
 
   @Input() tareas: any[];
+  @Output() completar = new EventEmitter<any>();
+
+  listadoTareas: any[];
 
   constructor() { }
 
+
   ngOnInit() {
+  }
+
+  onCompletar(tarea) {
+    tarea.finalizada = true;
+    this.completar.emit(tarea);
   }
 
 }
